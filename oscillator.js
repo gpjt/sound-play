@@ -19,7 +19,7 @@ class Oscillator extends stream.Readable {
     _read(n) {
         const sampleSize = this.bitDepth / 8;
         const blockAlign = sampleSize * this.channels;
-        const numSamples = n / blockAlign | 0;
+        const numSamples = n / blockAlign;
         const buf = bufferAlloc(numSamples * blockAlign);
 
         const t = this.freq / this.sampleRate;
