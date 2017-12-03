@@ -1,7 +1,7 @@
 const Speaker = require('speaker');
 const Oscillator = require('./oscillator').Oscillator;
 
-class TriangleWaveGenerator extends Oscillator {
+class TriangleWaveOscillator extends Oscillator {
 
     generateAmplitude(timeOffsetInCycles) {
         const wavePortion = (timeOffsetInCycles % 1) * 4;
@@ -19,5 +19,5 @@ class TriangleWaveGenerator extends Oscillator {
 const freq = parseFloat(process.argv[2], 10) || 440.0; // Concert A, default tone
 const duration = parseFloat(process.argv[3], 10) || 2.0;
 console.log('generating a %dhz triangle wave for %d seconds', freq, duration);
-const triangle = new TriangleWaveGenerator(16, 2, 44100, freq, duration);
+const triangle = new TriangleWaveOscillator(16, 2, 44100, freq, duration);
 triangle.pipe(new Speaker());
