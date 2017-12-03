@@ -1,0 +1,15 @@
+{
+  "name": "sound-play",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app",
+    "lint": "eslint --ext .js ."
+  },
+  "dependencies": {
+    "babel-eslint": "7.1.1",
+    "eslint": "3.9.1",
+    "eslint-plugin-node": "5.1.1",
+    "speaker": "0.4.0"
+  }
+}
