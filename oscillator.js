@@ -42,7 +42,6 @@ class Oscillator extends stream.Readable {
         }
     }
 
-
 }
 
 
