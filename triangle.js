@@ -7,11 +7,13 @@ class TriangleWaveOscillator extends Oscillator {
         const wavePortion = (timeOffsetInCycles % 1) * 4;
         if (wavePortion <= 1) {
             return wavePortion;
-        } else if (wavePortion <= 3) {
-            return 2 - wavePortion;
-        } else {
-            return wavePortion - 4;
         }
+
+        if (wavePortion <= 3) {
+            return 2 - wavePortion;
+        }
+
+        return wavePortion - 4;
     }
 
 }

@@ -4,11 +4,11 @@ const Oscillator = require('./oscillator').Oscillator;
 class SquareWaveOscillator extends Oscillator {
 
     generateAmplitude(timeOffsetInCycles) {
-        if ((timeOffsetInCycles % 1) < 0.5) {
+        if ((timeOffsetInCycles % 1) <= 0.5) {
             return 1;
-        } else {
-            return -1;
         }
+
+        return -1;
     }
 
 }
