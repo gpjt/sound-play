@@ -4,13 +4,13 @@ const Oscillator = require('./oscillator').Oscillator;
 class TriangleWaveGenerator extends Oscillator {
 
     generateAmplitude(timeOffsetInCycles) {
-        const angle = timeOffsetInCycles % 1;
-        if (angle <= 0.25) {
-            return 4 * angle;
-        } else if (angle <= 0.75) {
-            return 2 - (4 * angle);
+        const wavePortion = (timeOffsetInCycles % 1) * 4;
+        if (wavePortion <= 1) {
+            return wavePortion;
+        } else if (wavePortion <= 3) {
+            return 2 - wavePortion;
         } else {
-            return (4 * angle) - 4;
+            return wavePortion - 4;
         }
     }
 
