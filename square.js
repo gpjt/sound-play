@@ -35,14 +35,14 @@ class SquareWaveGenerator extends Readable {
 
         // the "angle" used in the function, adjusted for the number of
         // channels and sample rate. This value is like the period of the wave.
-        const t = (2 * freq) / this.sampleRate;
+        const t = freq / this.sampleRate;
 
         for (let i = 0; i < numSamples; i++) {
             // fill with a simple square wave at max amplitude
             for (let channel = 0; channel < this.channels; channel++) {
                 const s = this.samplesGenerated + i;
                 let val;
-                if (((t * s) % (2)) < 1) {
+                if (((t * s) % 1) < 0.5) {
                     val = amplitude;
                 } else {
                     val = -amplitude;
