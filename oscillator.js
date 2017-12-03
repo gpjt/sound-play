@@ -17,8 +17,8 @@ class Oscillator extends stream.Readable {
 
 
     _read(n) {
-        const sampleSize = this.bitDepth / 8;
-        const blockAlign = sampleSize * this.channels;
+        const bytesPerSample = this.bitDepth / 8;
+        const blockAlign = bytesPerSample * this.channels;
         const numSamples = n / blockAlign;
         const buf = bufferAlloc(numSamples * blockAlign);
 
@@ -28,7 +28,7 @@ class Oscillator extends stream.Readable {
             const s = this.samplesGenerated + i;
             const val = this.maxAmplitude * this.generateAmplitude(t * s);
             for (let channel = 0; channel < this.channels; channel++) {
-                const offset = (i * sampleSize * this.channels) + (channel * sampleSize);
+                const offset = (i * bytesPerSample * this.channels) + (channel * bytesPerSample);
                 buf[`writeInt${this.bitDepth}LE`](val, offset);
             }
         }
