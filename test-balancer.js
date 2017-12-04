@@ -1,11 +1,11 @@
 const Speaker = require('speaker');
 const process = require('process');
-const SineWaveOscillator = require('./oscillator').SineWaveOscillator;
+const oscillator = require('./oscillator');
 const Balancer = require('./balancer').Balancer;
 
-const duration = 10;
+const duration = 60;
 const lToRCycles = 2;
-const sine = new SineWaveOscillator(16, 2, 44100, 440, duration);
+const sine = new oscillator.TriangleWaveOscillator(16, 2, 44100, 440, duration);
 const balancer = new Balancer(16, 2, 0.5);
 sine.pipe(balancer).pipe(new Speaker());
 
