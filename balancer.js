@@ -6,7 +6,7 @@ class Balancer extends stream.Transform {
 
     constructor(bitDepth, channels, position) {
         super();
-        assert.ok(channels === 2, "Can only balance with two channels!")
+        assert.ok(channels === 2, "Can only balance with two channels!");
         this.bitDepth = bitDepth;
         this.channels = channels;
         this.position = position;
