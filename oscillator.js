@@ -43,6 +43,46 @@ class Oscillator extends stream.Readable {
     }
 
 }
-
-
 module.exports.Oscillator = Oscillator;
+
+
+class SineWaveOscillator extends Oscillator {
+
+    generateAmplitude(timeOffsetInCycles) {
+        return Math.sin(Math.PI * 2 * timeOffsetInCycles);
+    }
+
+}
+module.exports.SineWaveOscillator = SineWaveOscillator;
+
+class TriangleWaveOscillator extends Oscillator {
+
+    generateAmplitude(timeOffsetInCycles) {
+        const wavePortion = (timeOffsetInCycles % 1) * 4;
+        if (wavePortion <= 1) {
+            return wavePortion;
+        }
+
+        if (wavePortion <= 3) {
+            return 2 - wavePortion;
+        }
+
+        return wavePortion - 4;
+    }
+
+}
+module.exports.TriangleWaveOscillator = TriangleWaveOscillator;
+
+
+class SquareWaveOscillator extends Oscillator {
+
+    generateAmplitude(timeOffsetInCycles) {
+        if ((timeOffsetInCycles % 1) <= 0.5) {
+            return 1;
+        }
+
+        return -1;
+    }
+
+}
+module.exports.SquareWaveOscillator = SquareWaveOscillator;
