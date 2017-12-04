@@ -1,4 +1,3 @@
-const stream = require('stream');
 const Speaker = require('speaker');
 const SineWaveOscillator = require('./oscillator').SineWaveOscillator;
 const Balancer = require('./balancer').Balancer;
