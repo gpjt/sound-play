@@ -21,10 +21,9 @@ const timer = setInterval(() => {
 
     const angle = (fromStart / duration) * Math.PI * 2 * lToRCycles;
     const newPosition = (Math.sin(angle) + 1) / 2;
-    console.log("From", balancer.position, "to", newPosition);
     balancer.position = newPosition;
 
     if (fromStart >= duration) {
         clearInterval(timer);
     }
-}, 100);
+}, 1);
